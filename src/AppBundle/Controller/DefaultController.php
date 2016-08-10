@@ -20,6 +20,12 @@ class DefaultController extends Controller
         return $this->render('default/home.html.twig');
     }
 
+    public function registerredirectionAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->redirectToRoute('register_confirmed_redirection');
+    }
+
     public function mission1Action(Request $request)
     {
         

@@ -71,7 +71,7 @@ class RegistrationController extends Controller
             return $response;
         }
 
-        return $this->render('Register/register.html.twig', array(
+        return $this->render('default/registration.html.twig', array(
             'form' => $form->createView(),
         ));
     }
