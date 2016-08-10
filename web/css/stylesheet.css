@@ -46,7 +46,7 @@ src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-op
 	margin-bottom:20px;
 	padding-left: 0px;
 	background-color: #F1F1F1;
-	
+	padding-right: 0px;
 }
 
 /** Index
@@ -97,16 +97,31 @@ src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-op
  .carte {
  	height: 200px;
  	border:solid green 2px;
- }
+}
  .tableau {
  	height: 400px;
  	border:solid green 2px;
- }
+}
  #map {
 	height: 200px;
- }
+}
  #pano {
-        float: left;
-        height: 600px;
-        width: 100%;
-      }
+    float: left;
+    height: 600px;
+    width: 100%;
+}
+@keyframes fadeinout {
+   from { opacity: 0; }
+   50% { opacity: 1;}
+   to { opacity: 0; }
+}
+
+.compteur {
+	color: red;
+	font-size: 35px;
+	animation: fadeinout 1s infinite;
+}
+.target {
+	font-size: 35px;
+	color: blue;
+}
