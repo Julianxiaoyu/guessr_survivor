@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Guessr{% endblock %}</title>
+        <link rel="icon" type="image/png" href="{{ asset('yourFavIcon.png') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
+        <script type="text/javascript" src="{{ asset('js/jquery.js') }}" ></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}" ></script> 
+    </head>
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+    {% block body %}
+        <div class="container-fluid rambo">
+            <div class="col-md-12 vide"></div>
+            <div class="col-md-12">
+                
+                <div class="col-md-4 blanc">
+                    <div class="col-md-12">
+                        <h2 class="log-title">GUESSR</h2>
+                    </div>
+                    <div class="col-md-12">
+                        {% if error %}
+                            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+                    </div>
+                <div>
+                    <form action="{{ path("user_login_check") }}" method="post">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                        <div class="row">
+        <div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+            <label for="username">{{ 'security.login.username'|trans }}</label>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="Username"/>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+            <label for="password">{{ 'security.login.password'|trans }}</label>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input class="form-control" type="password" id="password" name="_password" required="required" placeholder="Mot de passe">
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+            <div class="input-group">
+                <span class="input-group-addon">
+                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                </span>
+                <label class="remember-me form-group" for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+            <input class="login btn-primary btn-lg" type="submit" id="_submit" name="_submit" value={{ 'security.login.submit'|trans }} /><a href="{{ path('user_register') }}"><button type="button" class="btn btn-primary">Rejoins nous !</button></a>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+{% endblock %}
+</html>

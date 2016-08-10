@@ -1,0 +1,67 @@
+
+
+# ---------------------> LOGIN/NEW USER <---------------------
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+index:
+    path:     /
+    defaults: { _controller: AppBundle:Default:index }
+
+user_login:
+    path:     /user/login
+    defaults: { _controller: AppBundle:Security:login }
+
+user_login_check:
+    path:    /user/login/check
+    defaults: { _controller: AppBundle:Security:check }
+
+user_logout:
+    path:    /user/logout
+    defaults: { _controller: AppBundle:Security:logout }
+
+home:
+    path:     /home
+    defaults: { _controller: AppBundle:Default:home }
+
+user_register:
+    path:     /register
+    defaults: { _controller: AppBundle:Registration:register }
+
+mission1:
+    path:     /mission1
+    defaults: { _controller: AppBundle:Default:mission1 }
+
+mission2:
+    path:     /mission2
+    defaults: { _controller: AppBundle:Default:mission2 }
+
+mission3:
+    path:     /mission3
+    defaults: { _controller: AppBundle:Default:mission3 }
+
+mission4:
+    path:     /mission4
+    defaults: { _controller: AppBundle:Default:mission4 }
+
+map1:
+    path:     /map1
+    defaults: { _controller: AppBundle:Default:map1 }
+
+map2:
+    path:     /map2
+    defaults: { _controller: AppBundle:Default:map2 }
+
+map3:
+    path:     /map3
+    defaults: { _controller: AppBundle:Default:map3 }
+
+map4:
+    path:     /map4
+    defaults: { _controller: AppBundle:Default:map4 }
+
