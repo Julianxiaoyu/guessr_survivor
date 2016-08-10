@@ -38,7 +38,7 @@
               <ul class="nav navbar-nav">
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Bienvenue survivor</a></li>
+                <li><a href="#">Bienvenue {{ app.user.username }}</a></li>
                 <li><a href="{{ path('user_logout') }}">LOGOUT</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
