@@ -18,12 +18,16 @@ src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-op
  html, body{
 	height:100%;
 }
+.titre1 {
+	color: rgb(92, 77, 62);
+	font-family: 'Chrono';
+}
 .page_choix_missions{
 	padding-top:40px;
 	background-image: url(../img/aventurier3.jpg);
-	background-repeat:no-repeat;
+	background-position: center;
 	background-size: cover;
-	height:100%;
+	height:80vh;
 }
 
 .page_choix_missions h1{
@@ -35,13 +39,14 @@ src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-op
 .vide1 {
 	height: 80px;
 }
-.container-fluid{
+.container-fluid {
 	margin: 0px;
 }
 
-.mission_block{
+.mission_block {
 	height: 150px;
-	border: black 3px solid;
+	border: rgb(92, 77, 62) 3px solid;
+	box-shadow: 6px 6px 0px rgb(92, 77, 62);
 	border-radius: 5px;
 	margin-bottom:20px;
 	padding-left: 0px;
@@ -72,11 +77,11 @@ src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-op
 	background: url(../img/mission1.jpg);
 	background-position: center;
 	background-size: cover;
-	height:100vh;
+	height:90vh;
 	
 }
 .theme {
-	border:solid green 2px;
+	border:solid rgb(92, 77, 62) 5px;
 	border-radius: 5px;
 	height: 300px;
 }
