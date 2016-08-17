@@ -39,6 +39,7 @@ src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-op
 .vide1 {
 	height: 80px;
 }
+
 .container-fluid {
 	margin: 0px;
 }
@@ -130,3 +131,4 @@ src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-op
 	font-size: 35px;
 	color: blue;
 }
+
