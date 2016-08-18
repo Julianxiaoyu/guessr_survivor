@@ -84,7 +84,8 @@ src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-op
 .theme {
 	border:solid rgb(92, 77, 62) 5px;
 	border-radius: 5px;
-	height: 300px;
+	height: 320px;
+	background-color: rgba(92, 77, 62, 0.5);
 }
 .espace {
 	height: 100px;
@@ -92,21 +93,22 @@ src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-op
 /** Map
  */
 .map {
-	background-color: rgb(227, 227, 227);
+	background-color: rgba(92, 77, 62, 0.5);
 	margin-right: -45px;
 }
 .street {
 	height: 100%;
 	margin: 0;
     padding: 0;
+    border:solid rgb(92, 77, 62) 5px;
 }
  .carte {
  	height: 200px;
- 	border:solid green 2px;
+ 	border:solid rgb(92, 77, 62) 5px;
 }
  .tableau {
  	height: 400px;
- 	border:solid green 2px;
+ 	border:solid rgb(92, 77, 62) 5px;
 }
  #map {
 	height: 200px;

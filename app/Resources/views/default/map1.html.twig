@@ -81,16 +81,16 @@ t();
 function t() {
   
 
-  s=duree;
+   s=duree;
   m=0;
   h=0;
 
   if(s<0) {
-    statut.innerHTML="Perdu, essaie encore !<br />"+"<a href=http://lien1.fr></a>";
+    statut.innerHTML="Perdu, essaie encore !";
   }
   
   if(s<0) {
-    compteur.innerHTML="terminé<br />"+"<a href=http://lien1.fr></a>";
+    compteur.innerHTML="Terminé";
   } else if (distance<50) {
         if(s>59) {
           m=Math.floor(s/60);
@@ -106,7 +106,7 @@ function t() {
         if(m<10) {
           m="0"+m
         }
-    compteur.innerHTML=h+":"+m+":"+s+"<br /><a href=http://lien2.fr></a>"
+    compteur.innerHTML=/*h+":"+*/m+":"+s
     return;
     }
     else  {
@@ -124,7 +124,7 @@ function t() {
       if(m<10) {
         m="0"+m
       }
-      compteur.innerHTML=h+":"+m+":"+s+"<br /><a href=http://lien2.fr></a>"
+      compteur.innerHTML=/*h+":"+*/m+":"+s
       }
             
       duree=duree-1;
@@ -134,13 +134,16 @@ function t() {
 
 
 
+
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKoRwoiN_pQDL5up1z4KcoLA-cBHkekn8&signed_in=true&callback=initialize">
 </script>
+
  
 
                 
+
 
 
 

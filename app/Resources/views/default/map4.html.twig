@@ -6,92 +6,141 @@
 <div class="container-fluid map">
 	<div class="col-md-12">
 		<div class="col-md-9 street">
-			<div></div>
     		<div id="pano"></div>
-
 		</div>
 		<div class="col-md-3">
 			<div id="map" class="col-md-12 carte">
 			</div>
 			<div class="col-md-12 tableau">
-				<h3>Boulangerie</h3>
+				<h3>Boulangerie de la Porte Guillaume</h3>
         <h3>Indice :</h3>
         <h3>Temps restant:
-          <div id="compteur"></div>
+          <div id="compteur" class="compteur"></div>
         </h3>
+        <h3>Distance de la cible :
+            <div id="distance_target" class="target"></div>
+        </h3>
+        <h3>
+            <div id="statut"></div>
+          </h3>
 			</div>
-
 		</div>
 	</div>
 </div>
 <script>
 
+var distance_precise = 1000;
+var distance = 1000;
+
 function initialize() {
-  var fenway = {lat: 48.448035, lng: 1.49276};
+  var pos_init = {lat: 48.447333, lng: 1.491672};
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: fenway,
+    center: pos_init,
     zoom: 14
   });
   var panorama = new google.maps.StreetViewPanorama(
       document.getElementById('pano'), {
-        position: fenway,
+        position: pos_init,
         pov: {
           heading: 34,
           pitch: 10
         }
       });
   map.setStreetView(panorama);
+  var arrivee = new google.maps.LatLng(48.447661,1.486317);
+  var compteur=document.getElementById('compteur');
+  var distance_target=document.getElementById('distance_target');
+  var statut=document.getElementById('statut');
+  statut.innerHTML= "Partie en cours..";
+
+  
+
+  panorama.addListener('position_changed', function() {
+
+     var latitude = panorama.getPosition().lat();
+     var longitude = panorama.getPosition().lng();
+     var current = new google.maps.LatLng(latitude,longitude);
+     distance_precise = google.maps.geometry.spherical.computeDistanceBetween( arrivee, current );
+     distance = distance_precise.toFixed(2);
+     distance_target.innerHTML= distance +" "+"mètres";
+     
+     if (distance<20) {
+        statut.innerHTML= "Gagné, mission accomplie !";
+    }
+  });
+
 }
+
+var duree="300";
+t();
+
+function t() {
+  
+
+  s=duree;
+  m=0;
+  h=0;
+
+  if(s<0) {
+    statut.innerHTML="Perdu, essaie encore !";
+  }
+  
+  if(s<0) {
+    compteur.innerHTML="Terminé";
+  } else if (distance<50) {
+        if(s>59) {
+          m=Math.floor(s/60);
+          s=s-m*60;
+        }
+        if(m>59) {
+          h=Math.floor(m/60);
+          m=m-h*60;
+        }
+        if(s<10) {
+          s="0"+s;
+        }
+        if(m<10) {
+          m="0"+m
+        }
+    compteur.innerHTML=/*h+":"+*/m+":"+s
+    return;
+    }
+    else  {
+      if(s>59) {
+        m=Math.floor(s/60);
+        s=s-m*60;
+      }
+      if(m>59) {
+        h=Math.floor(m/60);
+        m=m-h*60;
+      }
+      if(s<10) {
+        s="0"+s;
+      }
+      if(m<10) {
+        m="0"+m
+      }
+      compteur.innerHTML=/*h+":"+*/m+":"+s
+      }
+            
+      duree=duree-1;
+      window.setTimeout("t();",999);
+}
+
+
+
+
 
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKoRwoiN_pQDL5up1z4KcoLA-cBHkekn8&signed_in=true&callback=initialize">
 </script>
 
-<script language="JavaScript">
-                
-                function t()
-                {
-            var compteur=document.getElementById('compteur');
-            s=duree;
-            m=0;h=0;
-            if(s<0)
-                        {
-                                compteur.innerHTML="terminé<br />"+"<a href=http://lien1.fr></a>"
-            }
-                        else
-                        {
-                                if(s>59)
-                                {
-                                        m=Math.floor(s/60);
-                                        s=s-m*60
-                }
-                                if(m>59)
-                                {
-                                        h=Math.floor(m/60);
-                    m=m-h*60
-                                }
-                if(s<10)
-                                {
-                                        s="0"+s
-                }
-                if(m<10)
-                                {
-                    m="0"+m
-                }
-                  compteur.innerHTML=h+":"+m+":"+s+"<br /><a href=http://lien2.fr></a>"
-            }
-            duree=duree-1;
-            window.setTimeout("t();",999);
+ 
 
-        }
                 
-                </script>
-                 <script language="JavaScript">
-                        duree="300";
-                        t();
-                </script>
 
-  
+
+
 
 {% endblock %}
